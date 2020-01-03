@@ -1,0 +1,66 @@
+server:
+  port: 8081
+
+spring:
+  thymeleaf:
+    mode: HTML5
+    prefix: classpath:/templates/
+    suffix: .html
+  datasource:
+    url:
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      initial-size: 30
+      max-active: 300
+      min-idle: 5
+      max-wait: 30000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 45
+      validation-query: SELECT 1 FROM DUAL
+      validation-query-timeout: 30000
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      time-between-eviction-runs-millis: 30000
+      min-evictable-idle-time-millis: 50000
+      #监控配置
+      web-stat-filter:
+        enabled: true
+        url-pattern: /*
+        exclusions: *.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*
+      #statViewServlet配置
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        reset-enable: false
+        login-username: admin
+        login-password: admin
+        allow: 127.0.0.1
+#        deny:
+
+      filter:
+        stat:
+          db-type: mysql
+          log-slow-sql: true
+          slow-sql-millis: 5000
+
+        wall:
+          enabled: true
+          db-type: mysql
+          config:
+            delete-allow: false
+            drop-table-allow: false
+
+mybatis:
+  type-aliases-package: com.fly.entity
+  type-handlers-package: com.fly.typehandler
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 3000
+  mapper-locations: classpath:mapper/*.xml
+
+
