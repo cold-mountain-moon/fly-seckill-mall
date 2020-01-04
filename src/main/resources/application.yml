@@ -7,9 +7,9 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
   datasource:
-    url:
+    url: jdbc:mysql://192.168.1.163:3306/fly-seckill-mall?useUnicode=true&characterEncoding=utf8
     username: root
-    password: root
+    password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       driver-class-name: com.mysql.jdbc.Driver
@@ -30,7 +30,7 @@ spring:
       web-stat-filter:
         enabled: true
         url-pattern: /*
-        exclusions: *.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*
+#        exclusions: *.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*
       #statViewServlet配置
       stat-view-servlet:
         enabled: true
