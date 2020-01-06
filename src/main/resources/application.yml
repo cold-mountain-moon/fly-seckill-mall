@@ -6,8 +6,13 @@ spring:
     mode: HTML5
     prefix: classpath:/templates/
     suffix: .html
+    cache: false
+  mvc:
+    static-path-pattern: /static/**
+  resources:
+    static-locations: clathpath:/static/
   datasource:
-    url: jdbc:mysql://192.168.1.4:3306/fly-seckill-mall?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://192.168.1.163:3306/fly-seckill-mall?useUnicode=true&characterEncoding=utf8
     username: root
     password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
@@ -54,6 +59,7 @@ spring:
             delete-allow: false
             drop-table-allow: false
 
+
 mybatis:
   type-aliases-package: com.fly.entity
   type-handlers-package: com.fly.typehandler
@@ -65,7 +71,7 @@ mybatis:
 
 
 redis:
-  host: 192.168.1.4
+  host: 192.168.1.163
   port: 6379
   timeout: 3000
   password: fly123456

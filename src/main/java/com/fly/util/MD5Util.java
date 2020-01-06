@@ -18,7 +18,7 @@ public class MD5Util {
     }
 
     public static String encryptFormInputToDB(String form, String salt) {
-        String s = PUBLIC_SALT.charAt(1) + PUBLIC_SALT.charAt(3) + form + PUBLIC_SALT.charAt(6) + PUBLIC_SALT.charAt(8);
+        String s = form + salt;
         return md5(s);
     }
 

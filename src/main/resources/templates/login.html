@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>fly秒杀商城</title>
+</head>
+<body>
+
+    <form id="login-form">
+        <div>
+            <input type="text" name="phone" placeholder="手机号"/>
+        </div>
+        <div>
+            <input type="password" name="password" placeholder="密码"/>
+        </div>
+        <div>
+            <button id="login-btn" onclick="return false;">登录</button>
+        </div>
+    </form>
+
+
+    <script type="text/javascript" src="/webjars/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/md5.js"></script>
+
+    <script type="text/javascript">
+        const PUBLIC_SALT = "13589ACEGZ";
+
+        $(function() {
+            $("#login-btn").click(function() {
+                var form = document.getElementById("login-form");
+                var phone = form.phone;
+                var passwordPlain = form.password;
+                passwordPlain = PUBLIC_SALT.charAt(1) + PUBLIC_SALT.charAt(3) + passwordPlain + PUBLIC_SALT.charAt(6) + PUBLIC_SALT.charAt(8);
+                var md5Password = hex_md5(passwordPlain);
+                alert(md5Password);
+
+            });
+        });
+
+    </script>
+</body>
+</html>

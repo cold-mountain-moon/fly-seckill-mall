@@ -1,6 +1,6 @@
 package com.fly.service.impl;
 
-import com.fly.entity.Customer;
+import com.fly.domain.entity.Customer;
 import com.fly.mapper.CustomerMapper;
 import com.fly.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;

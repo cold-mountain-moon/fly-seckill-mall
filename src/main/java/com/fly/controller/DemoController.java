@@ -1,6 +1,6 @@
 package com.fly.controller;
 
-import com.fly.entity.Customer;
+import com.fly.domain.entity.Customer;
 import com.fly.redis.RedisService;
 import com.fly.redis.key.CustomerKey;
 import com.fly.response.CodeMsg;

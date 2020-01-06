@@ -1,6 +1,6 @@
 package com.fly.mapper;
 
-import com.fly.entity.Customer;
+import com.fly.domain.entity.Customer;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

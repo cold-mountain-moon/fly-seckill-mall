@@ -1,6 +1,6 @@
 package com.fly.service;
 
-import com.fly.entity.Customer;
+import com.fly.domain.entity.Customer;
 
 /**
  * @Description
