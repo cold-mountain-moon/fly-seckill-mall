@@ -23,16 +23,31 @@
     <script type="text/javascript" src="/static/js/md5.js"></script>
 
     <script type="text/javascript">
-        const PUBLIC_SALT = "13589ACEGZ";
+        var PUBLIC_SALT = "13589ACEGZ";
 
         $(function() {
             $("#login-btn").click(function() {
                 var form = document.getElementById("login-form");
-                var phone = form.phone;
-                var passwordPlain = form.password;
+                var phone = form.phone.value;
+                var passwordPlain = form.password.value;
                 passwordPlain = PUBLIC_SALT.charAt(1) + PUBLIC_SALT.charAt(3) + passwordPlain + PUBLIC_SALT.charAt(6) + PUBLIC_SALT.charAt(8);
                 var md5Password = hex_md5(passwordPlain);
-                alert(md5Password);
+
+                $.ajax({
+                    url: "http://localhost:8081/sys/login",
+                    type: 'post',
+                    dataType: 'json',
+                    data: JSON.stringify({phone: phone, password: md5Password}),
+                    contentType: "application/json",
+                    success: function(res) {
+                        console.log(res);
+
+                    },
+                    error: function (err) {
+                        console.log(err);
+                        alert("请求异常");
+                    }
+                });
 
             });
         });

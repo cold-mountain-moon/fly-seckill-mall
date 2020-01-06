@@ -1,11 +1,13 @@
 package com.fly.controller;
 
 import com.fly.domain.vo.LoginVo;
+import com.fly.response.Response;
+import com.fly.service.login.LoginService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 /**
  * @Description
@@ -18,6 +20,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/sys")
 public class LoginController {
 
+    @Autowired
+    private LoginService loginService;
+
     @GetMapping("/login")
     public String loginPage() {
         return "login";
@@ -25,8 +30,8 @@ public class LoginController {
 
     @PostMapping("/login")
     @ResponseBody
-    public String login(LoginVo loginVo) {
-        return null;
+    public Response<Boolean> login(@RequestBody @Valid LoginVo loginVo) {
+        return Response.success(loginService.login(loginVo));
     }
 
 
