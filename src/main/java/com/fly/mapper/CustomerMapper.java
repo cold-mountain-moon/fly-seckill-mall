@@ -19,6 +19,6 @@ public interface CustomerMapper {
     @Select("select id, name from customer where id = #{id}")
     Customer get(@Param("id") Long id);
 
-    @Select("select id, phone, password from customer where phone = #{phone}")
+    @Select("select id, name, phone, password, salt from customer where phone = #{phone}")
     Customer getByPhone(@Param("phone") String formPhone);
 }
