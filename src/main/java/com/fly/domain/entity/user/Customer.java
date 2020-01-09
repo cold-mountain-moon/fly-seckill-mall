@@ -1,4 +1,4 @@
-package com.fly.domain.entity;
+package com.fly.domain.entity.user;
 
 import lombok.Data;
 import lombok.ToString;

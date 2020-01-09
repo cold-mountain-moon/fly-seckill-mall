@@ -1,11 +1,11 @@
 package com.fly.controller;
 
-import com.fly.domain.entity.Customer;
+import com.fly.domain.entity.user.Customer;
 import com.fly.redis.RedisService;
 import com.fly.redis.key.CustomerKey;
 import com.fly.response.CodeMsg;
 import com.fly.response.Response;
-import com.fly.service.CustomerService;
+import com.fly.service.user.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

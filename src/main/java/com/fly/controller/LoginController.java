@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 /**
@@ -30,8 +31,8 @@ public class LoginController {
 
     @PostMapping("/login")
     @ResponseBody
-    public Response<Boolean> login(@RequestBody @Valid LoginVo loginVo) {
-        return Response.success(loginService.login(loginVo));
+    public Response<Boolean> login(HttpServletResponse response, @RequestBody @Valid LoginVo loginVo) {
+        return Response.success(loginService.login(response, loginVo));
     }
 
 
