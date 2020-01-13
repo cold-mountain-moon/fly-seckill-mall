@@ -53,3 +53,8 @@ CREATE TABLE `order_info` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+INSERT INTO `fly-seckill-mall`.`goods` (`id`, `goods_name`, `goods_title`, `goods_img`, `goods_detail`, `goods_price`, `goods_stock`) VALUES ('1', '华为p30PRO手机金色', '华为p30PRO手机金色', '/static/img/iphone8.png', '华为p30PRO手机金色很好看奥，超划算啊哦', '5699.00', '10');
+INSERT INTO `fly-seckill-mall`.`goods` (`id`, `goods_name`, `goods_title`, `goods_img`, `goods_detail`, `goods_price`, `goods_stock`) VALUES ('2', 'iphonex白色', 'iphonex白色', '/static/img/iphonex.png', 'iphonex白色', '6399.00', '10');
+
+
+INSERT INTO `fly-seckill-mall`.`miaosha_goods` (`id`, `goods_id`, `stock_count`, `start_date`, `end_date`, `miaosha_price`) VALUES ('1', '1', '10', '2020-01-13 15:49:52', '2020-01-13 15:49:52', '1.00');
