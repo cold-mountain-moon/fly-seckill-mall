@@ -3,6 +3,7 @@ package com.fly.service.goods;
 import com.fly.domain.entity.goods.Goods;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Description TODO
@@ -17,6 +18,8 @@ public interface GoodsService {
     Goods get(Long id);
 
     List<Goods> list();
+
+    Map<Long, Goods> getGoodsIdMap();
 
 
 }

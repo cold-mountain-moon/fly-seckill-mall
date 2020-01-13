@@ -1,13 +1,24 @@
 package com.fly.domain.entity.goods;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class MiaoshaGoods {
 	private Long id;
 	private Long goodsId;
 	private Integer stockCount;
+	private BigDecimal miaoshaPrice;
 	private Date startDate;
 	private Date endDate;
+
+	public BigDecimal getMiaoshaPrice() {
+		return miaoshaPrice;
+	}
+
+	public void setMiaoshaPrice(BigDecimal miaoshaPrice) {
+		this.miaoshaPrice = miaoshaPrice;
+	}
+
 	public Long getId() {
 		return id;
 	}

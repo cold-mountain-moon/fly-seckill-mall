@@ -1,6 +1,4 @@
 package com.fly.util;
-
-import org.apache.commons.codec.cli.Digest;
 import org.apache.commons.codec.digest.DigestUtils;
 
 public class MD5Util {
@@ -30,7 +28,11 @@ public class MD5Util {
     }
 
     public static void main(String[] args) {
-        System.out.println(encryptFormInputToDB(encryptFromInput("123456"), PUBLIC_SALT)); // 26b07769ab3a62086a6263a53e667a51
+        System.out.println(encryptFromInput("123456"));
+        System.out.println(encryptPlainFormToDb("123456", PUBLIC_SALT)); // 26b07769ab3a62086a6263a53e667a51
     }
+
+
+
 
 }

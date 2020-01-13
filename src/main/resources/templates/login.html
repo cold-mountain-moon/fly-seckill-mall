@@ -30,10 +30,10 @@
                 var form = document.getElementById("login-form");
                 var phone = form.phone.value;
                 var passwordPlain = form.password.value;
-                passwordPlain = PUBLIC_SALT.charAt(1) + PUBLIC_SALT.charAt(3) + passwordPlain + PUBLIC_SALT.charAt(6) + PUBLIC_SALT.charAt(8);
-                console.log(passwordPlain);
-                var md5Password = hex_md5(passwordPlain);
+                passwordPlain = '' + PUBLIC_SALT.charAt(1) + PUBLIC_SALT.charAt(3) + passwordPlain + PUBLIC_SALT.charAt(6) + PUBLIC_SALT.charAt(8);
 
+                var md5Password = hex_md5(passwordPlain);
+                console.log(md5Password);
                 $.ajax({
                     url: "/sys/login",
                     type: 'post',
@@ -43,7 +43,7 @@
                     success: function(res) {
                         var code = res.code;
                         if(code == 0) {
-                            alert("登录成功");
+                            window.location.href = '/miaosha/goods_list';
                         } else {
                             alert(res.msg);
                         }

@@ -9,6 +9,8 @@ import org.springframework.util.CollectionUtils;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 /**
  * @Description TODO
@@ -33,5 +35,11 @@ public class GoodsServiceImpl implements GoodsService {
     public List<Goods> list() {
         List<Goods> list = goodsMapper.list();
         return CollectionUtils.isEmpty(list) ? Collections.EMPTY_LIST : list;
+    }
+
+    @Override
+    public Map<Long, Goods> getGoodsIdMap() {
+        List<Goods> list = list();
+        return list.stream().collect(Collectors.toMap(Goods::getId, g -> g));
     }
 }
