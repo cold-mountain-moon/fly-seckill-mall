@@ -1,6 +1,5 @@
 package com.fly.controller;
 
-import com.fly.domain.entity.goods.MiaoshaGoods;
 import com.fly.domain.entity.user.Customer;
 import com.fly.domain.vo.MiaoshaGoodsVo;
 import com.fly.service.goods.MiaoshaGoodsService;

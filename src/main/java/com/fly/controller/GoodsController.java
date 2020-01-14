@@ -1,12 +1,10 @@
 package com.fly.controller;
 
 import com.fly.domain.entity.goods.Goods;
-import com.fly.domain.entity.goods.MiaoshaGoods;
 import com.fly.domain.entity.user.Customer;
 import com.fly.domain.vo.GoodsDetailVo;
 import com.fly.service.goods.GoodsService;
 import com.fly.service.goods.MiaoshaGoodsService;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.jws.WebParam;
 import java.util.List;
 
 /**
