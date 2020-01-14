@@ -28,6 +28,9 @@ public class CodeMsg {
     public static CodeMsg SUCCESS = new CodeMsg(0, "");
     public static CodeMsg SERVER_ERROR = new CodeMsg(500000, "服务器异常");
     public static CodeMsg ERROR_LOGIN_NAME_OR_PASSWORD = new CodeMsg(500100, "用户名或密码错误");
+    public static CodeMsg GOODS_NOT_FOUND = new CodeMsg(500200, "商品信息为空");
+
+
     public static CodeMsg PARAMS_ERROR = new CodeMsg(400100, "参数错误：%s");
 
     public int getCode() {

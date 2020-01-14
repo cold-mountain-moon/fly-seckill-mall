@@ -40,9 +40,9 @@
         <td th:text="${#dates.format(goods.startDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
         <td id="miaoshaTip">	
         	<input type="hidden" id="remainSeconds" th:value="${remainSeconds}" />
-<!--        	<span th:if="${miaoshaStatus eq 0}">秒杀倒计时：<span id="countDown" th:text="${remainSeconds}"></span>秒</span>-->
-<!--        	<span th:if="${miaoshaStatus eq 1}">秒杀进行中</span>-->
-<!--        	<span th:if="${miaoshaStatus eq 2}">秒杀已结束</span>-->
+        	<span th:if="${miaoshaStatus eq 1}">秒杀倒计时：<span id="countDown" th:text="${remainSeconds}"></span>秒</span>
+        	<span th:if="${miaoshaStatus eq 2}">秒杀进行中</span>
+        	<span th:if="${miaoshaStatus eq 3}">秒杀已结束</span>
         </td>
         <td>
         	<form id="miaoshaForm" method="post" action="/miaosha/do_miaosha">
@@ -67,7 +67,34 @@
 </div>
 </body>
 <script>
+    $(function() {
+        var remainSeconds = $("#remainSeconds").text();
+        if(remainSeconds > 0) {
+            var $countDown = $("#countDown");
+            var intervalId;
+            if(remainSeconds > 0) {
+                $("#buyButton").attr("disabled", true);
+                intervalId = setInterval(function () {
+                    countDown();
+                    if($countDown.text() <= 0) {
+                        clearInterval(intervalId);
+                        $("#buyButton").attr("disabled", false);
+                        $("#miaoshaTip").html("秒杀进行中");
+                    }
+                }, 1000)
+            }
+        }
 
+    });
+
+    function countDown() {
+        var countDown = $("#countDown").text();
+        if(countDown > 0) {
+            countDown--;
+        }
+        $("#countDown").text(countDown);
+        $("#remainSeconds").val(countDown);
+    }
 
 
 </script>

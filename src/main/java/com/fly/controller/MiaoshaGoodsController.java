@@ -21,7 +21,6 @@ public class MiaoshaGoodsController {
     @RequestMapping("/goods_list")
     public String list(Model model, Customer customer) {
         model.addAttribute("user", customer);
-
         List<MiaoshaGoodsVo> goodsList = miaoshaGoodsService.listMiaoshaGoodsVo();
         model.addAttribute("goodsList", goodsList);
         return "goods_list";

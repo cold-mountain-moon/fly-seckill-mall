@@ -1,8 +1,11 @@
 package com.fly.controller;
 
 import com.fly.domain.entity.goods.Goods;
+import com.fly.domain.entity.goods.MiaoshaGoods;
 import com.fly.domain.entity.user.Customer;
+import com.fly.domain.vo.GoodsDetailVo;
 import com.fly.service.goods.GoodsService;
+import com.fly.service.goods.MiaoshaGoodsService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,7 +30,8 @@ public class GoodsController {
 
     @Autowired
     private GoodsService goodsService;
-
+    @Autowired
+    private MiaoshaGoodsService miaoshaGoodsService;
 
     @GetMapping("/goods_list")
     public String toGoodsList(Model model, Customer customer) {
@@ -39,8 +43,7 @@ public class GoodsController {
 
     @GetMapping("/detail/{id}")
     public String goodsDetial(@PathVariable("id") Long id, Model model, Customer customer) {
-        Goods goods = goodsService.get(id);
-        goods = goods == null ? new Goods() : goods;
+        GoodsDetailVo goods = miaoshaGoodsService.miaoshaGoodsDetail(id);
         model.addAttribute("user", customer);
         model.addAttribute("goods", goods);
         return "goods_detail";

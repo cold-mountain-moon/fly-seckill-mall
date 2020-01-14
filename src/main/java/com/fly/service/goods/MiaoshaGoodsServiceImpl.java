@@ -1,7 +1,9 @@
 package com.fly.service.goods;
 
+import com.fly.domain.entity.MiaoshaGoodsEntity;
 import com.fly.domain.entity.goods.Goods;
 import com.fly.domain.entity.goods.MiaoshaGoods;
+import com.fly.domain.vo.GoodsDetailVo;
 import com.fly.domain.vo.MiaoshaGoodsVo;
 import com.fly.mapper.goods.MiaoshaGoodsMapper;
 import org.omg.PortableServer.LIFESPAN_POLICY_ID;
@@ -38,5 +40,18 @@ public class MiaoshaGoodsServiceImpl implements MiaoshaGoodsService {
             vos.add(vo);
         });
         return vos;
+    }
+
+    @Override
+    public MiaoshaGoods getByGoodsId(Long goodsId) {
+        MiaoshaGoods miaoshaGoods = miaoshaGoodsMapper.getByGoodsId(goodsId);
+        return miaoshaGoods == null ? new MiaoshaGoods() : miaoshaGoods;
+    }
+
+    @Override
+    public GoodsDetailVo miaoshaGoodsDetail(Long id) {
+        Goods goods = goodsService.get(id);
+        MiaoshaGoods miaoshaGoods = getByGoodsId(id);
+        return MiaoshaGoodsEntity.toMiaoshaGoodsVo(goods, miaoshaGoods);
     }
 }
