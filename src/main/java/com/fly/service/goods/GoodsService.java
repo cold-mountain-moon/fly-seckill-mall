@@ -1,6 +1,7 @@
 package com.fly.service.goods;
 
-import com.fly.domain.entity.goods.Goods;
+
+import com.fly.domain.pojo.goods.Goods;
 
 import java.util.List;
 import java.util.Map;

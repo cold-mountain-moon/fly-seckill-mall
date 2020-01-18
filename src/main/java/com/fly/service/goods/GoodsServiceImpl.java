@@ -1,8 +1,7 @@
 package com.fly.service.goods;
 
-import com.fly.domain.entity.goods.Goods;
+import com.fly.domain.pojo.goods.Goods;
 import com.fly.mapper.goods.GoodsMapper;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;

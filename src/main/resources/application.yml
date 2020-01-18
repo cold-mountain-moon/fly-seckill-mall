@@ -12,7 +12,7 @@ spring:
   resources:
     static-locations: clathpath:/static/
   datasource:
-    url: jdbc:mysql://192.168.1.8:3306/fly-seckill-mall?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://192.168.1.163:3306/fly-seckill-mall?useUnicode=true&characterEncoding=utf8
     username: root
     password: 123456
     type: com.alibaba.druid.pool.DruidDataSource
@@ -71,10 +71,10 @@ mybatis:
 
 
 redis:
-  host: 192.168.1.8
+  host: 192.168.1.163
   port: 6379
   timeout: 3000
-  password: fly123456
+#  password: fly123456
   poolMaxTotal: 10
   poolMaxIdel: 10
   poolMaxWait: 3

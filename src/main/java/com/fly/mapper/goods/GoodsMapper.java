@@ -1,6 +1,6 @@
 package com.fly.mapper.goods;
 
-import com.fly.domain.entity.goods.Goods;
+import com.fly.domain.pojo.goods.Goods;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

@@ -1,8 +1,5 @@
 package com.fly.domain.entity.user;
 
-import lombok.Data;
-import lombok.ToString;
-
 /**
  * @Description
  * @Compay 北京岚时科技

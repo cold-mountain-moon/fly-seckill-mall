@@ -1,6 +1,6 @@
 package com.fly.domain.vo;
 
-import com.fly.domain.entity.goods.Goods;
+import com.fly.domain.pojo.goods.Goods;
 
 import java.math.BigDecimal;
 import java.util.Date;

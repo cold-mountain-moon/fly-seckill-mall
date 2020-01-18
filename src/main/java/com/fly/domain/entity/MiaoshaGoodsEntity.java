@@ -1,7 +1,7 @@
 package com.fly.domain.entity;
 
-import com.fly.domain.entity.goods.Goods;
 import com.fly.domain.entity.goods.MiaoshaGoods;
+import com.fly.domain.pojo.goods.Goods;
 import com.fly.domain.vo.GoodsDetailVo;
 import com.fly.exception.GlobalException;
 import com.fly.response.CodeMsg;

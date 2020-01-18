@@ -1,7 +1,7 @@
 package com.fly.controller;
 
-import com.fly.domain.entity.goods.Goods;
 import com.fly.domain.entity.user.Customer;
+import com.fly.domain.pojo.goods.Goods;
 import com.fly.domain.vo.GoodsDetailVo;
 import com.fly.service.goods.GoodsService;
 import com.fly.service.goods.MiaoshaGoodsService;
