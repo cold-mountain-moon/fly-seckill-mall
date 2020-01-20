@@ -12,7 +12,7 @@ spring:
   resources:
     static-locations: clathpath:/static/
   datasource:
-    url: jdbc:mysql://192.168.1.163:3306/fly-seckill-mall?useUnicode=true&characterEncoding=utf8
+    url: jdbc:mysql://192.168.1.163:3306/fly-seckill-mall?useUnicode=true&characterEncoding=utf8&serverTimezone=CTT
     username: root
     password: 123456
     type: com.alibaba.druid.pool.DruidDataSource

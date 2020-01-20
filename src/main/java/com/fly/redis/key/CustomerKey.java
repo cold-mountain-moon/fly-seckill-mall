@@ -1,6 +1,6 @@
 package com.fly.redis.key;
 
-public class CustomerKey extends BasePrefix {
+public class CustomerKey extends BaseKeyPrefix {
 
     private static final int TOKEN_EXPIRE_SECONDS = 2 * 24 * 60 * 60;
 

@@ -29,6 +29,8 @@ public class CodeMsg {
     public static CodeMsg SERVER_ERROR = new CodeMsg(500000, "服务器异常");
     public static CodeMsg ERROR_LOGIN_NAME_OR_PASSWORD = new CodeMsg(500100, "用户名或密码错误");
     public static CodeMsg GOODS_NOT_FOUND = new CodeMsg(500200, "商品信息为空");
+    public static CodeMsg STOCK_COUNT_NOT_ENOUGH = new CodeMsg(500300, "商品库存不足");
+    public static CodeMsg NOT_ALLOWED_REPEAT_MIAOSHA = new CodeMsg(500400, "该商品只能秒杀一次");
 
 
     public static CodeMsg PARAMS_ERROR = new CodeMsg(400100, "参数错误：%s");

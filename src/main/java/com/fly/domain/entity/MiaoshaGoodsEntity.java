@@ -35,7 +35,7 @@ public class MiaoshaGoodsEntity {
         long now = System.currentTimeMillis();
         if(startDate.getTime() > now) {
             vo.setMiaoshaStatus(1);
-            vo.setRemainSeconds((now - startDate.getTime()) / 1000);
+            vo.setRemainSeconds((startDate.getTime() - now) / 1000);
         } else if(endDate.getTime() < now) {
             vo.setMiaoshaStatus(3);
         } else {

@@ -39,10 +39,10 @@
         <td>秒杀开始时间</td>  
         <td th:text="${#dates.format(goods.startDate, 'yyyy-MM-dd HH:mm:ss')}"></td>
         <td id="miaoshaTip">	
-        	<input type="hidden" id="remainSeconds" th:value="${remainSeconds}" />
-        	<span th:if="${miaoshaStatus eq 1}">秒杀倒计时：<span id="countDown" th:text="${remainSeconds}"></span>秒</span>
-        	<span th:if="${miaoshaStatus eq 2}">秒杀进行中</span>
-        	<span th:if="${miaoshaStatus eq 3}">秒杀已结束</span>
+        	<input type="hidden" id="remainSeconds" th:miaoshaStatus="${goods.miaoshaStatus}" th:value="${goods.remainSeconds}" />
+        	<span th:if="${goods.miaoshaStatus eq 1}">秒杀倒计时：<span id="countDown" th:text="${goods.remainSeconds}"></span>秒</span>
+        	<span th:if="${goods.miaoshaStatus eq 2}">秒杀进行中</span>
+        	<span th:if="${goods.miaoshaStatus eq 3}">秒杀已结束</span>
         </td>
         <td>
         	<form id="miaoshaForm" method="post" action="/miaosha/do_miaosha">
@@ -57,36 +57,51 @@
      </tr>
       <tr>  
         <td>秒杀价</td>  
-<!--        <td colspan="3" th:text="${goods.miaoshaPrice}"></td>  -->
+        <td colspan="3" th:text="${goods.miaoshaPrice}"></td>
      </tr>
      <tr>  
         <td>库存数量</td>  
-<!--        <td colspan="3" th:text="${goods.stockCount}"></td>  -->
+        <td colspan="3" th:text="${goods.stockCount}"></td>
      </tr>
   </table>
 </div>
 </body>
 <script>
     $(function() {
-        var remainSeconds = $("#remainSeconds").text();
-        if(remainSeconds > 0) {
+        miaoshaButtonSetting();
+    });
+
+    /**
+     * 设置秒杀button的显示隐藏、秒杀倒计时
+     */
+    function miaoshaButtonSetting() {
+        var remainSeconds = $("#remainSeconds").val();
+        var miaoshaStatus = $("#remainSeconds").attr("miaoshaStatus");
+        if(!remainSeconds) {
+            if(miaoshaStatus != 2) {
+                $("#buyButton").hide();
+            }
+        } else {
             var $countDown = $("#countDown");
             var intervalId;
             if(remainSeconds > 0) {
-                $("#buyButton").attr("disabled", true);
+                $("#buyButton").attr("disabled", true).show();
                 intervalId = setInterval(function () {
                     countDown();
                     if($countDown.text() <= 0) {
-                        clearInterval(intervalId);
+                        $("#buyButton").show();
                         $("#buyButton").attr("disabled", false);
                         $("#miaoshaTip").html("秒杀进行中");
+                        clearInterval(intervalId);
                     }
                 }, 1000)
             }
         }
+    }
 
-    });
-
+    /**
+     * 计数器减减
+     */
     function countDown() {
         var countDown = $("#countDown").text();
         if(countDown > 0) {
